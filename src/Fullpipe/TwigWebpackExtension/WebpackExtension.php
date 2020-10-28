@@ -12,7 +12,7 @@ class WebpackExtension extends AbstractExtension
      * @var string
      */
     protected $publicDir;
-
+ 
     public function __construct(string $manifestFile, string $publicDir)
     {
         $this->manifestFile = $manifestFile;

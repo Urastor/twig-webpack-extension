@@ -1,6 +1,8 @@
 {
-  "main.js": "/build/js/main.js",
-  "main.css": "/build/css/main.css",
-  "second.js": "/build/js/second.js",
-  "foo.png": "/build/bar.png"
+  "main": { 
+    "js": "/build/js/main.js", 
+    "css": "/build/css/main.css" 
+  },
+  "second": {"js": "/build/js/second.js" },
+  "foo": {"png": "/build/bar.png" }
 }

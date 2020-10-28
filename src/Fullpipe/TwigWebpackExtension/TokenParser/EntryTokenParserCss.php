@@ -40,13 +40,13 @@ class EntryTokenParserCss extends AbstractTokenParser
         }
 
         $manifest = \json_decode(\file_get_contents($this->manifestFile), true);
-        $manifestIndex = $entryName.'.css';
+        $manifestIndex = $entryName;
 
-        if (!isset($manifest[$manifestIndex])) {
+        if (!isset($manifest[$manifestIndex]) && !isset($manifest[$manifestIndex]['css'])) {
             throw new LoaderError('Webpack css entry '.$entryName.' not exists.', $token->getLine(), $stream->getSourceContext());
         }
 
-        $entryPath = $manifest[$manifestIndex];
+        $entryPath = $manifest[$manifestIndex]['css'];
 
         if ($inline) {
             $tag = \sprintf(

@@ -42,13 +42,14 @@ class EntryTokenParserJs extends AbstractTokenParser
         }
 
         $manifest = \json_decode(\file_get_contents($this->manifestFile), true);
-        $manifestIndex = $entryName.'.js';
+        $manifestIndex = $entryName;
+        
 
-        if (!isset($manifest[$manifestIndex])) {
+        if (!isset($manifest[$manifestIndex]) && !isset($manifest[$manifestIndex]['js'])) {
             throw new LoaderError('Webpack js entry '.$entryName.' not exists.', $token->getLine(), $stream->getSourceContext());
         }
 
-        $entryPath = $manifest[$manifestIndex];
+        $entryPath = $manifest[$manifestIndex]['js'];
 
         if ($inline) {
             $tag = \sprintf(
